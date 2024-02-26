@@ -75,15 +75,15 @@ if ($result->num_rows > 0) {
 
 <?php
   
-$sql = "SELECT partidua.p_kodea, partidua.data, jolastu.iraupena, jolastu.faltak, jolastu.jokua_emaitza, jolastu.taldea, 
-        jokalaria.izena AS jokalaria_izena, jokalaria.abizena AS jokalaria_abizena, 
-        arbitroa.a_izena AS arbitroa_izena, arbitroa.a_abizena AS arbitroa_abizena
-        FROM partidua
-        JOIN jolastu ON partidua.p_kodea = jolastu.partidua_kodea
-        JOIN jokalaria ON jolastu.jokalaria_nan = jokalaria.nan
-        JOIN arbitroa ON partidua.arbitroa_nan = arbitroa.nan
-        ORDER BY partidua.p_kodea";
-
+  $sql = "SELECT partidua.p_kodea, partidua.data, jolastu.iraupena, jolastu.faltak, jolastu.jokua_emaitza, jolastu.taldea, 
+  jokalaria.izena AS jokalaria_izena, jokalaria.abizena AS jokalaria_abizena, 
+  arbitroa.a_izena AS arbitroa_izena, arbitroa.a_abizena AS arbitroa_abizena
+  FROM partidua
+  JOIN jolastu ON partidua.p_kodea = jolastu.partidua_kodea
+  JOIN jokalaria ON jolastu.jokalaria_nan = jokalaria.nan
+  JOIN arbitroa ON partidua.arbitroa_nan = arbitroa.nan
+  WHERE partidua.torneoa_kodea = '$torneoId'
+  ORDER BY partidua.p_kodea";
 
 $result = $conn->query($sql);
 
@@ -114,7 +114,7 @@ if ($result->num_rows > 0) {
 
         echo "<tr>";
 
-        if ($row["taldea"] == 1) {
+        if ($row["p_kodea"] == $row["p_kodea"]) {
             echo "<td>" . $row["jokalaria_izena"] . " " . $row["jokalaria_abizena"] . "</td>";
             echo "<td>" . $row["faltak"] . "</td>";
             echo "<td>" . $row["jokua_emaitza"] . "</td>";
