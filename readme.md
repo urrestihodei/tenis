@@ -9,11 +9,11 @@ Lehenik, VirtualBox softwarea erabiliz, Ubuntu server-eko makina birtual bat egi
 3-[SQL](#SQL)
 
 ## Erabilitako materiala
--Ordenagailua
+- Ordenagailua
 
--Virtual Box
+- Virtual Box
 
--Ubuntu server iso-a
+- Ubuntu server iso-a
 
 ## Zerbitzariaren ezaugarriak
 -
