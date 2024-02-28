@@ -36,8 +36,8 @@ git clone <https://github.com/urrestihodei/tenis.git>
 Ondoren, /var/www/html/ karpetara mugitu dugu eta apache berrabiarazi dugu. Horrela, Apachek web orrialdea Git-eko repositoriotik hartuko du.
 
 ## SQL
-My Sql zerbitzari bat instalatu dugu eta bertan kopiatu dugu datu basea gure wbe orrialdeak bertako informazioa erakus dezan. Hau egiteko agindu hau erabili dugu:
+My Sql zerbitzari bat instalatu dugu, Hau egiteko agindu hau erabili dugu:
 ```
 sudo apt install mysql-server
-```
-
+``` 
+Bertan gure datu basea kopiatu dugu web orrialdeak bertako informazioa erakus dezan. 
