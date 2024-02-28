@@ -73,61 +73,69 @@ if ($result->num_rows > 0) {
     <h1>Emaitzak </h1>
     <h2>Torneoa: <?php echo $torneoNombre; ?></h2>
 
-<?php
-  
-  $sql = "SELECT partidua.p_kodea, partidua.data, jolastu.iraupena, jolastu.faltak, jolastu.jokua_emaitza, jolastu.taldea, 
-  jokalaria.izena AS jokalaria_izena, jokalaria.abizena AS jokalaria_abizena, 
-  arbitroa.a_izena AS arbitroa_izena, arbitroa.a_abizena AS arbitroa_abizena
-  FROM partidua
-  JOIN jolastu ON partidua.p_kodea = jolastu.partidua_kodea
-  JOIN jokalaria ON jolastu.jokalaria_nan = jokalaria.nan
-  JOIN arbitroa ON partidua.arbitroa_nan = arbitroa.nan
-  WHERE partidua.torneoa_kodea = '$torneoId'
-  ORDER BY partidua.p_kodea";
+    <?php
+// Realizar la consulta SQL para obtener los datos de los partidos
+$sql = "SELECT partidua.p_kodea, partidua.data, jolastu.iraupena, jolastu.faltak, jolastu.jokua_emaitza, jolastu.taldea, 
+        jokalaria.izena AS jokalaria_izena, jokalaria.abizena AS jokalaria_abizena, 
+        arbitroa.a_izena AS arbitroa_izena, arbitroa.a_abizena AS arbitroa_abizena
+        FROM partidua
+        JOIN jolastu ON partidua.p_kodea = jolastu.partidua_kodea
+        JOIN jokalaria ON jolastu.jokalaria_nan = jokalaria.nan
+        JOIN arbitroa ON partidua.arbitroa_nan = arbitroa.nan
+        WHERE partidua.torneoa_kodea = '$torneoId'
+        ORDER BY partidua.p_kodea, jolastu.taldea"; // Ordenar por código de partido y número de equipo
 
 $result = $conn->query($sql);
 
+// Inicializar un array para almacenar las parejas
+$parejas = array();
+
 if ($result->num_rows > 0) {
-    $current_p_kodea = null;
-
-    echo "<table border='1'>";
-    echo "<tr>
-            <th>Izena Abizenak</th>
-            <th>Emaitza</th>
-        </tr>";
-
     while ($row = $result->fetch_assoc()) {
-        if ($row["p_kodea"] != $current_p_kodea) {
-            if ($current_p_kodea !== null) {
-                echo "<td></td></tr>";
-            }
-            $tennisa1 = $row["taldea"] . " " . $row["jokalaria_izena"] . " " . $row["jokalaria_abizena"];
-            $result1 = $row["jokua_emaitza"];
-
-            echo "<tr>
-                    <td>$tennisa1</td>
-                    <td>$result1</td>
-                </tr>";
-
-            $current_p_kodea = $row["p_kodea"];
-        } else {
-            $tennisa2 = $row["taldea"] . " " . $row["jokalaria_izena"] . " " . $row["jokalaria_abizena"];
-            $result2 = $row["jokua_emaitza"];
-
-            echo "<tr>
-                    <td>$tennisa2</td>
-                    <td>$result2</td>
-                </tr>";
+        // Utilizar el código del partido como clave para agrupar las parejas
+        $p_kodea = $row["p_kodea"];
+        
+        // Si el array de parejas no tiene la clave, inicializarla como un array vacío
+        if (!isset($parejas[$p_kodea])) {
+            $parejas[$p_kodea] = array();
         }
+
+        // Agregar los datos de la pareja al array correspondiente
+        $parejas[$p_kodea][] = $row;
     }
 
-    echo "</table>";
+    // Iterar sobre las parejas y mostrarlas
+    foreach ($parejas as $p_kodea => $pareja) {
+        // Mostrar la información del partido
+        echo "<h2>Partidu Data: " . $pareja[0]["data"] . " - Iraupena(min): " . $pareja[0]["iraupena"] . " - Epailea: " . $pareja[0]["arbitroa_izena"] . " " . $pareja[0]["arbitroa_abizena"] . "</h2>";
+
+        // Mostrar la tabla de resultados de la pareja
+        echo "<table border='1'>";
+        echo "<tr>
+                <th>Jokalaria</th>
+                <th>Faltak</th>
+                <th>Emaitza</th>              
+            </tr>";
+
+        // Iterar sobre los datos de la pareja
+        foreach ($pareja as $jugador) {
+            echo "<tr>";
+            echo "<td>". $jugador["taldea"] . " " . $jugador["jokalaria_izena"] . " " . $jugador["jokalaria_abizena"] . "</td>";
+            echo "<td>" . $jugador["faltak"] . "</td>";
+            echo "<td>" . $jugador["jokua_emaitza"] . "</td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    }
 } else {
     echo "Ez daude partiduak.";
 }
-
-
 ?>
+
+
+
+
 </body>
 
 </html>
