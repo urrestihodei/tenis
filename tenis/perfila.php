@@ -49,13 +49,13 @@ if ($result->num_rows > 0) {
         }
 
         p {
-            color: #495057;
+            color: #000;
             margin: 20px 0;
             font-size: 22px;
         }
 
         strong {
-            color: #007bff;
+            color: #000;
             font-size: 24px;
         }
     </style>

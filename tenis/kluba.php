@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Historia</title>
     <style>
         body {
@@ -13,7 +14,7 @@
             text-align: center;
         }
         h1, h2 {
-            color: #0066cc;
+            color: #000;
             text-align: center;
         }
         div {
@@ -44,6 +45,15 @@
 <body>
 
     <h1>Tolosako Tenis Klubaren Historia</h1>
+
+    <nav>
+        <a href="index.html">Hasiera</a>
+        <a href="torneoa.php">Txapelketak eta Emaitzak</a>
+        <a href="jokalariak.php">Jokalariak</a>
+        <a href="informazioa.php">Informazioa</a>
+        <a href="kluba.php">Kluba</a>
+        <a href="login.php">Saioa Hasi</a>
+    </nav>
 
     <div class="image-gallery">
         <h2>Gure Hasierak...</h2>

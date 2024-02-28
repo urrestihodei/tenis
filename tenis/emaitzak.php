@@ -30,6 +30,7 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Emaitzak</title>
     <style>
         body {
@@ -41,7 +42,7 @@ if ($result->num_rows > 0) {
         }
 
         h1, h2 {
-            color: #0066cc;
+            color: #000;
             text-align: center;
         }
 
@@ -59,7 +60,7 @@ if ($result->num_rows > 0) {
         }
 
         th {
-            background-color: #0066cc;
+            background-color: #000;
             color: white;
         }
 
@@ -71,6 +72,17 @@ if ($result->num_rows > 0) {
 
 <body>
     <h1>Emaitzak </h1>
+
+    <nav>
+        <a href="index.html">Hasiera</a>
+        <a href="torneoa.php">Txapelketak eta Emaitzak</a>
+        <a href="jokalariak.php">Jokalariak</a>
+        <a href="informazioa.php">Informazioa</a>
+        <a href="kluba.php">Kluba</a>
+        <a href="login.php">Saioa Hasi</a>
+    </nav>
+
+    <br>
     <h2>Torneoa: <?php echo $torneoNombre; ?></h2>
 
     <?php

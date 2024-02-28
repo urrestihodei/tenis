@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Sesioa Hasi</title>
     <style>
         body {
@@ -13,7 +14,7 @@
             text-align: center;
         }
         h2 {
-            color: #0066cc;
+            color: #000;
         }
         form {
             max-width: 400px;
@@ -38,7 +39,7 @@
             font-size: 16px;
         }
         input[type="submit"] {
-            background-color: #0066cc;
+            background-color: #000;
             color: #fff;
             cursor: pointer;
             border: none;
@@ -58,6 +59,15 @@
 <body>
 
     <h2>Sesioa Hasi</h2>
+
+    <nav>
+        <a href="index.html">Hasiera</a>
+        <a href="torneoa.php">Txapelketak eta Emaitzak</a>
+        <a href="jokalariak.php">Jokalariak</a>
+        <a href="informazioa.php">Informazioa</a>
+        <a href="kluba.php">Kluba</a>
+        <a href="login.php">Saioa Hasi</a>
+    </nav>
 
     <form action="tenis.php" method="post">
         <label for="erabiltzaile_izena">Erabiltzailea:</label>

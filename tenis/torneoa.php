@@ -16,6 +16,7 @@ $result = $conn->query($emaitzak);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Txapelketak</title>
     <style>
         body {
@@ -27,7 +28,7 @@ $result = $conn->query($emaitzak);
         }
 
         h1, h2 {
-            color: #0066cc;
+            color: #000;
             text-align: center;
         }
 
@@ -45,7 +46,7 @@ $result = $conn->query($emaitzak);
         }
 
         th {
-            background-color: #0066cc;
+            background-color: #000;
             color: white;
         }
 
@@ -75,6 +76,15 @@ $result = $conn->query($emaitzak);
 
 <body>
     <h1>Txapelketak</h1>
+
+    <nav>
+        <a href="index.html">Hasiera</a>
+        <a href="torneoa.php">Txapelketak eta Emaitzak</a>
+        <a href="jokalariak.php">Jokalariak</a>
+        <a href="informazioa.php">Informazioa</a>
+        <a href="kluba.php">Kluba</a>
+        <a href="login.php">Saioa Hasi</a>
+    </nav>
 
     <?php
     if ($result->num_rows > 0) {
