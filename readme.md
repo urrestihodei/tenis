@@ -8,7 +8,17 @@ Lehenik, VirtualBox softwarea erabiliz, Ubuntu server-eko makina birtual bat egi
 
 3-[SQL](#SQL)
 
+## Erabilitako materiala
+-Ordenagailua
 
+-Virtual Box
+
+-Ubuntu server iso-a
+
+## Zerbitzariaren ezaugarriak
+-
+-
+-
 ## Apache
 /etc/apache2/sites-available/  karpetan dagoen .conf fitxategia editatu dugu.
 Artxibo horretan, DocumentRoot bilatzen du, bertan, web fitxategiak dauden direktorioa jartzen dugu. Adibidez: DocumentRoot /var/www/html/tenis-apache/.
