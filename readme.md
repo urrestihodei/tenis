@@ -3,15 +3,10 @@ Lehenik, VirtualBox softwarea erabiliz, Ubuntu server-eko makina birtual bat egi
 
 ## Aurkibidea
 1-[Erabilitako materiala](#Materiala)
-
 2-[Zerbitzariaren ezaugarriak](#Zerbitzaria)
-
 3-[Nola inportatu Virtul Box-en makina birtuala](#Inportazioa)
-
 4-[Apache](#Apache)
-
 5-[Git](#Git)
-
 6-[SQL](#SQL)
 
 ## Materiala
