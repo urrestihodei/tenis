@@ -2,23 +2,40 @@
 Lehenik, VirtualBox softwarea erabiliz, Ubuntu server-eko makina birtual bat egin dugu Apache, Git eta sql instalatuta. Makina hau, gure sare berdinean jarri dugu zubi-egokitzailearen aukera erabiliz.
 
 ## Aurkibidea
-1-[Apache](#Apache)
+1-[Erabilitako materiala](#Materiala)
 
-2-[Git](#Git)
+2-[Zerbitzariaren ezaugarriak](#Zerbitzaria)
 
-3-[SQL](#SQL)
+3-[Nola inportatu Virtul Box-en makina birtuala](#Inportazioa)
 
-## Erabilitako materiala
+4-[Apache](#Apache)
+
+5-[Git](#Git)
+
+6-[SQL](#SQL)
+
+## Materiala
 - Ordenagailua
 
 - Virtual Box
 
 - Ubuntu server iso-a
 
-## Zerbitzariaren ezaugarriak
+## Zerbitzaria
 -
 -
 -
+
+## Inportazioa
+
+Lehenik eta behin, Birtuala Box menuan hona joan behar dugu: Archivo>Importar servicio virtualizado. Ondoren, inportatu nahi dugun makinaren irudia duen fitxategia aukeratu behar dugu, normalean .OVA formatuan, disko gogorretik.
+
+Urrats hori egin ondoren, makinaren oinarrizko ezaugarriak ikusi eta konfiguratu ahal izango ditugu: izena, baliabideak, kokapena, etab. Geroago, inportatu ondoren, berriro alda ditzakegu.
+
+Hori eginda, inportazio-prozesua hasiko da. Unetxo bat iraungo du, daukagun makinaren arabera, baina ez minutu batzuk baino gehiago.
+
+
+
 ## Apache
 /etc/apache2/sites-available/  karpetan dagoen .conf fitxategia editatu dugu.
 Artxibo horretan, DocumentRoot bilatzen du, bertan, web fitxategiak dauden direktorioa jartzen dugu. Adibidez: DocumentRoot /var/www/html/tenis-apache/.
