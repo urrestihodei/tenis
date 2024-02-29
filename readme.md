@@ -21,7 +21,7 @@ Lehenik, VirtualBox softwarea erabiliz, Ubuntu server-eko makina birtual bat egi
 
 - Ubuntu server iso-a
 
-## Zerbitzariaren ezaugarriak
+## Zerbitzaria
 -
 -
 -
