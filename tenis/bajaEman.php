@@ -1,20 +1,20 @@
 <?php
     include 'konexioa.php';
 
-    // Verifica si se envió el formulario
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Obtén el usuario y contraseña del formulario
+        // Formularioko datuak hartzen ditu
         $erabiltzailea = $_POST['erabiltzailea'];
         $pasahitza = $_POST['pasahitza'];
 
-        // Consulta para verificar las credenciales del usuario
+       
         $sql = "SELECT * FROM jokalaria WHERE erabiltzailea = '$erabiltzailea' AND pasahitza = '$pasahitza'";
 
         $result = $conn->query($sql);
 
-        // Verifica si se encontró un usuario con las credenciales proporcionadas
+        // Formularioan jarritako kredentzialekin datuak daudela bermatzen du.
         if ($result->num_rows > 0) {
-            // Cambia el estado de "aktibo" a 0 para el usuario en la base de datos
+            
             $update_sql = "UPDATE jokalaria SET aktibo = 0 WHERE erabiltzailea = '$erabiltzailea'";
             if ($conn->query($update_sql) === TRUE) {
                 header("Location: baja.php?success=true");
@@ -39,8 +39,8 @@
 </head>
 <body>
 
-    <h2>Error: Acceso no autorizado</h2>
-    <p>Por favor, inicia sesión para acceder a esta página.</p>
+    <h2>Errorea: ezin da baimenik gabe sartu</h2>
+    <p>Saioa hasi orri honetara sartzeko.</p>
 
 </body>
 </html>
