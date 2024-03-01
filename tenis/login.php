@@ -1,44 +1,44 @@
 <?php
 
-// Incluir el archivo de conexión a la base de datos
+
 include 'konexioa.php';
 
-// Verificar si el formulario ha sido enviado
+// Formularioa bidali den bermatzen du
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener los valores del formulario
+    // formularioko datuak lortu.
     $erabiltzaile_izena = $_POST["erabiltzaile_izena"];
     $pasahitza = $_POST["pasahitza"];
 
-    // Preparar la consulta SQL (utilizando consultas preparadas para evitar inyección SQL)
+    // SQL kontsulta egin
     $sql = "SELECT * FROM jokalaria WHERE erabiltzailea = ? AND pasahitza = ? AND aktibo = 1";
 
-    // Preparar la declaración
+  
     $stmt = $conn->prepare($sql);
 
-    // Vincular los parámetros
+    // Parametroak lotu
     $stmt->bind_param("ss", $erabiltzaile_izena, $pasahitza);
 
-    // Ejecutar la consulta
+    
     $stmt->execute();
 
-    // Obtener el resultado
+    
     $result = $stmt->get_result();
 
-    // Verificar si se encontró un usuario
+    // Erabiltzaileak aurkitu diren egiaztatu
     if ($result->num_rows == 1) {
-        // Usuario autenticado correctamente
+        
         $_SESSION["erabiltzaile_izena"] = $erabiltzaile_izena;
-        header("Location: perfila.php"); // Redirigir a la página de perfil
-        exit(); // Finalizar el script para evitar que se siga ejecutando
+        header("Location: perfila.php"); // perfila.php orrira bidali
+        exit();
     } else {
         $error = "Erabiltzailea edo pasahitza okerrak dira.";
     }
 
-    // Cerrar la declaración
+   
     $stmt->close();
 }
 
-// Cerrar la conexión
+
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -132,7 +132,7 @@ $conn->close();
     </nav>
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <!-- Formulario para iniciar sesión -->
+        
         <label for="erabiltzaile_izena">Erabiltzailea:</label>
         <input type="text" name="erabiltzaile_izena" required>
 
@@ -148,7 +148,7 @@ $conn->close();
     </form>
 
     <?php if (isset($error)) : ?>
-        <!-- Mostrar mensaje de error -->
+        
         <p class="error"><?php echo $error; ?></p>
     <?php endif; ?>
 
