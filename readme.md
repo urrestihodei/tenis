@@ -22,9 +22,9 @@ Lehenik, VirtualBox softwarea erabiliz, Ubuntu server-eko makina birtual bat egi
 - Ubuntu server iso-a
 
 ## Zerbitzaria
--
--
--
+- 2GB RAM
+- 20GB-ko disko gogorra
+
 
 ## Inportazioa
 
