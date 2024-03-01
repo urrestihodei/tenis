@@ -14,7 +14,7 @@
     $sql = "INSERT INTO jokalaria (nan, izena, abizena, herria, jaiotze_data, tituluak, erabiltzailea, pasahitza, aktibo)
             VALUES ('$nan', '$izena', '$abizena', '$herria', '$jaiotze_data', 0, '$erabiltzailea', '$pasahitza', 1)";
 
-    
+    //ondo erregistratzean, erregistroa.php orrira bidaliko zaitu
     if ($conn->query($sql) === TRUE) {
         header("Location: erregistroa.php?success=true");
         exit(); 
